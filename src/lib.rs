@@ -21,7 +21,12 @@ mod linux;
 #[cfg(target_os = "linux")]
 pub use linux::OsLogLayer;
 
-#[cfg(not(any(target_vendor = "apple", target_os = "linux")))]
+#[cfg(target_os = "windows")]
+mod windows;
+#[cfg(target_os = "windows")]
+pub use windows::OsLogLayer;
+
+#[cfg(not(any(target_vendor = "apple", target_os = "linux", target_os = "windows")))]
 mod stub;
-#[cfg(not(any(target_vendor = "apple", target_os = "linux")))]
+#[cfg(not(any(target_vendor = "apple", target_os = "linux", target_os = "windows")))]
 pub use stub::OsLogLayer;

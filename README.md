@@ -17,6 +17,12 @@ operating-system logging.
   they never span asynchronous task migration between threads.
 - Linux uses [`tracing-journald`](https://docs.rs/tracing-journald) and returns
   `None` when the systemd journal socket is unavailable.
+- Windows uses the Windows Event Log Application log through
+  the `eventlog` crate's native backend and embedded message resources. The
+  `subsystem` must already be registered as an event source, normally by an
+  installer, with the application executable as its message file;
+  `try_new` returns `None` when Windows cannot open it. The `category` is
+  included in each event message.
 - Other platforms expose the same API as a no-op layer and return `None`.
 
 ## Example

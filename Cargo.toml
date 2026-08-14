@@ -1,6 +1,6 @@
 [package]
 name = "tracing-os-layer"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2024"
 rust-version = "1.85"
 license = "MIT OR Apache-2.0"
@@ -28,6 +28,10 @@ cc = "1"
 
 [target.'cfg(target_os = "linux")'.dependencies]
 tracing-journald = "0.3"
+
+[target.'cfg(target_os = "windows")'.dependencies]
+eventlog = "0.4"
+log = "0.4"
 
 [lints.rust]
 missing_docs = "deny"
