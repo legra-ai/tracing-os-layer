@@ -2,6 +2,13 @@
 //! Apple platforms.
 
 fn main() {
+    rhusky::Rhusky::new()
+        .hooks_dir(".githooks")
+        .skip_in_env("GITHUB_ACTIONS")
+        .with_default_hooks()
+        .install_from_build_script()
+        .expect("failed to install repository Git hooks");
+
     println!("cargo:rerun-if-changed=build.rs");
     println!("cargo:rerun-if-changed=csrc/wrapper.h");
     println!("cargo:rerun-if-changed=csrc/wrapper.c");
