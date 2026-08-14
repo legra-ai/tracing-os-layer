@@ -24,6 +24,7 @@ impl OsLogLayer {
     /// The `subsystem` and `category` parameters are accepted for
     /// API parity with the macOS variant but are not used --
     /// journald identifies the source by unit/PID.
+    #[must_use]
     pub fn try_new(_subsystem: &str, _category: &str) -> Option<Self> {
         tracing_journald::layer().ok().map(|inner| Self { inner })
     }

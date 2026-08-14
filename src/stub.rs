@@ -13,6 +13,7 @@ pub struct OsLogLayer;
 
 impl OsLogLayer {
     /// Always returns `None` on this platform.
+    #[must_use]
     pub fn try_new(_subsystem: &str, _category: &str) -> Option<Self> {
         None
     }
