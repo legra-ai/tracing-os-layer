@@ -2,7 +2,7 @@
 name = "tracing-os-layer"
 version = "0.2.0"
 edition = "2024"
-rust-version = "1.85"
+rust-version = "1.99.1"
 license = "MIT OR Apache-2.0"
 description = "Cross-platform OS-native logging layer for tracing"
 repository = "https://github.com/legra-ai/tracing-os-layer"
